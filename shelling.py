@@ -103,7 +103,8 @@ class Schelling:
                     self.empty_house.remove(empty_house)
                     self.empty_house.append(agent)
                     count_unhappy += 1
-            self.plot(filename+"{}.png".format(i))
+            if count_unhappy != 0:
+                self.plot(filename+"{}.png".format(i))
             if count_unhappy == 0:
                 break
 
@@ -117,7 +118,7 @@ class Schelling:
 for f in glob.glob('img/*'):
     os.remove(f)
 
-schelling_1 = Schelling(10,100, 2)
+schelling_1 = Schelling(20,100, 2)
 schelling_1.create_map()
 schelling_1.update("img/schelling_")
 schelling_1.create_gif()
